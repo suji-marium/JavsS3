@@ -14,11 +14,16 @@ class Bank
             }
         }
         this.amount-=amount;
-        System.out.println("Withraw Completed");
-        if (this.amount>0)
+        if (this.amount>amount)
+        {
+              System.out.println("Withraw Completed");
               System.out.println("Available Balance : "+this.amount);
+        }
         else
-              System.out.println("Available Balance : 0");
+        {
+              System.out.println("Low balance");
+              System.out.println("Not able to Withraw");
+        }
     }
 
     synchronized void deposit(int amount)
@@ -52,7 +57,7 @@ class Withdraw extends Thread
     }
     public void run()
     {
-        b.withdraw(2500);
+        b.withdraw(25000);
     }
 }
 
